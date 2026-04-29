@@ -1,10 +1,4 @@
-<div align="center">
-
-<img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png" alt="WatchVault Logo" width="150" />
-
-<h1>WatchVault</h1>
-
-</div>
+<img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png" alt="WatchVault Logo" width="150" style="margin-bottom:10px;"/>
 
 # WatchVault
 
