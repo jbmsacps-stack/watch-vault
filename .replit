@@ -37,3 +37,8 @@ externalPort = 80
 [deployment]
 deploymentTarget = "autoscale"
 run = ["node", "server.js"]
+
+[userenv]
+
+[userenv.shared]
+JWT_SECRET = "337d4ddee3ac8ab4ec8c15bbf2187de1a3757fb0c463fe0c866970814fcad4acab175bf2efc84ab62fe6482f2cfd1695"
