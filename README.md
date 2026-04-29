@@ -10,53 +10,28 @@ Create lists for everything you want to watch — Movies, Series, Anime.
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20App-brightgreen?style=for-the-badge)](https://watch-vault--joshuabaskar106.replit.app/)
 [![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
-
 [![HTML](https://img.shields.io/badge/HTML-Frontend-E34F26?style=for-the-badge&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS](https://img.shields.io/badge/CSS-Styling-1572B6?style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Logic-F7DF1E?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-🌐 **Website:** [watch-vault--joshuabaskar106.replit.app](https://watch-vault--joshuabaskar106.replit.app/)
+🌐 **Live App:** [watch-vault--joshuabaskar106.replit.app](https://watch-vault--joshuabaskar106.replit.app/)
 
 </div>
 
 ---
 
-## ⚡ Built in 12 Hours — A Showcase of Talent
+## About
 
-> *"Speed is a skill. Shipping is a skill. Doing both together is rare."*
+WatchVault is a full-stack web application for organizing personal entertainment. Rather than passive logging, it gives users full control through custom lists and flexible collection management — whether queuing a weekend watchlist, tracking series progress, or sorting anime by season.
 
-WatchVault was designed, developed, and deployed **from scratch in under 12 hours** — a deliberate personal challenge to test real-world development ability under time pressure.
+WatchVault is not a streaming platform. It is a personal organization tool.
 
-This project is not just a web app. It is a **proof of capability** from an aspiring full-stack developer who wanted to show what focused effort, clean thinking, and solid fundamentals can produce without relying on the wave of modern AI code-generation tools. The only AI assistance used during development was **ChatGPT** — for occasional lookups and rubber-duck-style reasoning, not code generation.
+This project was built as a portfolio piece, developed primarily through my own problem-solving and technical skills. The entire application — frontend, backend, database, authentication, and deployment — was completed independently within a 12-hour build window.
 
-Every line of frontend code is handwritten in **vanilla HTML, CSS, and JavaScript** — no frontend frameworks, no UI kits, no shortcuts. The backend was built with **Node.js and Express**, with a live **MongoDB** database wired up and working within the same window. Authentication, REST API design, schema modeling, external API integration — all of it, in 12 hours.
-
-### What this demonstrates
-
-| Skill | Evidence |
-|-------|----------|
-| Frontend fundamentals | Handwritten HTML, CSS, and Vanilla JS — no React, no Tailwind, no libraries |
-| Backend development | Full Express REST API with JWT auth and MongoDB integration |
-| Speed & execution | Complete, deployed, working product in under half a day |
-| Problem solving | External API integration, session management, and schema design under a deadline |
-| Independent thinking | Built without modern AI code-gen tools — logic and architecture are entirely original |
-| Full-stack thinking | Frontend, backend, database, auth, and deployment handled end-to-end |
-
-This is what I can build on a regular day, with a timer running. Imagine what comes next.
-
+The frontend was fully designed and implemented by me using vanilla HTML, CSS, and JavaScript, without relying on any frameworks or UI libraries. ChatGPT was used only as a supplementary reference tool for clarification and guidance, not for generating the core implementation.
 ---
 
-## 📖 About
-
-WatchVault is a full-stack web application for organizing your entertainment — not just tracking it. Rather than passive logging, WatchVault puts you in control through user-defined lists and flexible collection management.
-
-Whether you're queuing up a weekend watchlist, tracking where you left off in a series, or organizing anime by season, WatchVault adapts to the way you actually watch.
-
-> **Not a streaming platform.** WatchVault is designed purely for organizing and managing entertainment lists.
-
----
-
-## 📸 Screenshots
+## Screenshots
 
 | Home | Explore | My List |
 |------|---------|---------|
@@ -64,30 +39,30 @@ Whether you're queuing up a weekend watchlist, tracking where you left off in a 
 
 ---
 
-## ✨ Features
+## Features
 
-### 🔍 Content Discovery
-- Search movies, series, and anime via the **OMDb API**
+**Content Discovery**
+- Search movies, series, and anime via the OMDb API
 - Look up titles by keyword or IMDb ID
-- Browse trending content directly from the homepage
+- Browse trending content from the homepage
 
-### 📋 List Management
-- Create fully custom collections (e.g. *Weekend Watchlist*, *Anime Queue*, *Must Rewatch*)
+**List Management**
+- Create and name custom collections
 - Add and remove titles freely across any list
-- Track episode progress for series and anime — store season and episode details so you know exactly where you stopped
+- Track episode progress with season and episode details per title
 
-### 🔐 Authentication
+**Authentication**
 - User registration and login
-- Secure, stateless sessions via **JWT (JSON Web Tokens)**
+- Stateless sessions via JSON Web Tokens (JWT)
 
-### 🗄️ Persistence
-- MongoDB integration via **Mongoose**
-- Separate schemas for users, lists, and titles
-- Per-user structured storage
+**Data Persistence**
+- MongoDB via Mongoose ODM
+- Separate schemas for users, lists, and saved titles
+- All data scoped per user
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -98,11 +73,11 @@ Whether you're queuing up a weekend watchlist, tracking where you left off in a 
 | External API | OMDb API |
 | Hosting | Replit |
 
-> **Note on frontend choice:** The entire UI is built with plain HTML, CSS, and JavaScript — deliberately. No React, no Vue, no component libraries. This was a conscious decision to demonstrate that strong fundamentals can produce a polished, functional product without leaning on abstractions.
+The frontend uses no frameworks or libraries by design — a deliberate choice to demonstrate proficiency with core web fundamentals.
 
 ---
 
-## 🏗️ System Architecture
+## Architecture
 
 ```
 Client (HTML / CSS / JS)
@@ -116,7 +91,7 @@ Client (HTML / CSS / JS)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 watch-vault/
@@ -126,8 +101,8 @@ watch-vault/
 │   ├── lists.js         # List CRUD operations
 │   └── savedTitles.js   # Title save/remove logic
 │
-├── models/              # Mongoose schemas (User, List, Title)
-├── server.js            # App entry point
+├── models/              # Mongoose schemas — User, List, Title
+├── server.js            # Entry point
 ├── .env                 # Environment variables (not committed)
 ├── package.json
 └── README.md
@@ -135,27 +110,27 @@ watch-vault/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
+**Prerequisites**
 - Node.js v18+
-- MongoDB Atlas account (or local MongoDB)
-- OMDb API key — [get one free here](https://www.omdbapi.com/apikey.aspx)
+- MongoDB Atlas account or local MongoDB instance
+- OMDb API key — [free registration here](https://www.omdbapi.com/apikey.aspx)
 
-### 1. Clone the Repository
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/jbmsacps-stack/watch-vault.git
 cd watch-vault
 ```
 
-### 2. Install Dependencies
+**2. Install dependencies**
 
 ```bash
 npm install
 ```
 
-### 3. Configure Environment Variables
+**3. Configure environment variables**
 
 Create a `.env` file in the project root:
 
@@ -165,17 +140,17 @@ API_KEY=your_omdb_api_key
 JWT_SECRET=your_jwt_secret_key
 ```
 
-### 4. Run the Application
+**4. Start the server**
 
 ```bash
 node server.js
 ```
 
-Visit: [http://localhost:5000](http://localhost:5000)
+Visit `http://localhost:5000`
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### Authentication
 
@@ -188,7 +163,7 @@ Visit: [http://localhost:5000](http://localhost:5000)
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/api/lists` | Fetch all lists for authenticated user |
+| `GET` | `/api/lists` | Get all lists for the authenticated user |
 | `POST` | `/api/lists` | Create a new list |
 | `DELETE` | `/api/lists/:id` | Delete a list by ID |
 
@@ -204,125 +179,83 @@ Visit: [http://localhost:5000](http://localhost:5000)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET` | `/api/search?q=keyword` | Search titles by keyword |
-| `GET` | `/api/search?id=imdbID` | Fetch title by IMDb ID |
+| `GET` | `/api/search?id=imdbID` | Fetch a title by IMDb ID |
 
 ---
 
-## 🎨 Design Philosophy
+## Roadmap
 
-WatchVault was built with a deliberate separation between **content discovery** and **user data**, keeping the experience flexible and free of rigid tracking models.
-
-- **API-first architecture** — clean REST endpoints designed for scalability
-- **Stateless authentication** — JWT ensures no server-side session storage
-- **Minimal, focused UI** — backend functionality takes priority; the interface stays out of the way
-- **Separation of concerns** — Explore and Lists are architecturally independent
-- **Zero framework dependency on the frontend** — HTML, CSS, and JS as they were meant to be used
-
----
-
-## 🔭 Roadmap
-
-- [ ] Episode-level tracking for series and anime
+- [ ] Episode-level progress tracking
 - [ ] Automated trending content updates
-- [ ] Improved UI transitions and animations
-- [ ] Role-based access control (Admin / User)
-- [ ] Production-grade deployment (Docker / VPS)
+- [ ] UI transitions and animation improvements
+- [ ] Role-based access control
+- [ ] Production deployment via Docker or VPS
 - [ ] Public list sharing
 
 ---
 
-## 👤 Author
+## Author
 
 **Joshua Baskar** — Aspiring Full-Stack Developer
 
-I'm a developer passionate about building real, functional products from the ground up. WatchVault is one example of what I can put together independently — from database design to REST APIs to a handcrafted frontend — all within a tight self-imposed deadline.
-
-If you're a recruiter, collaborator, or fellow developer, feel free to reach out. I'm always open to opportunities, feedback, and conversations about building things.
-
-🔗 [GitHub](https://github.com/jbmsacps-stack) · [LinkedIn](https://www.linkedin.com/in/joshua-baskar-2b4a88381/) · [Live App](https://watch-vault--joshuabaskar106.replit.app/)  
-📬 jbmsacps@gmail.com
+📬 jbmsacps@gmail.com  
+🔗 [GitHub](https://github.com/jbmsacps-stack) · [LinkedIn](https://www.linkedin.com/in/joshua-baskar-2b4a88381/) · [Live App](https://watch-vault--joshuabaskar106.replit.app/)
 
 ---
 
-# 📋 Copyright Notice & Usage Terms
-
-<div align="center">
+## Copyright & Usage Terms
 
 **WatchVault** · Copyright © 2026 Joshua Baskar · All rights reserved.
 
-</div>
+### Permitted Uses
 
----
+- Viewing and studying the source code for personal learning
+- Referencing the project in non-commercial academic or portfolio work, with attribution
+- Private forking for personal experimentation
+- Sharing links to this repository or the live application with proper credit
 
-## A Note to Visitors, Developers & Collaborators
+### Restricted Uses
 
-Thank you for taking the time to explore WatchVault. This project represents a significant personal investment of time, creativity, and effort. To ensure it remains protected while still being accessible to the community in a fair and respectful way, please take a moment to read the following.
+The following require explicit written permission from the author:
 
----
+- Publicly publishing this project or any substantial portion of its code
+- Monetizing this project in any form — paid access, commercial integration, ad revenue, etc.
+- Redistributing modified or unmodified versions under a different name or identity
+- Claiming authorship or ownership of any part of this project
 
-## ✅ What You Are Welcome To Do
+Commercial or revenue-generating use may be discussed. Licensing arrangements, including royalty terms, are open to reasonable negotiation.
 
-- **View and study** the source code for personal learning and educational purposes
-- **Reference** the project in academic work, portfolios, or non-commercial writeups with clear credit given to the original author
-- **Fork and experiment** privately for your own learning — this is how developers grow, and that is fully respected here
-- **Share** links to this project or the live application, with proper attribution
+📬 Contact: jbmsacps@gmail.com
 
----
+### Fair Use
 
-## ⚠️ What Requires Prior Permission
+Personal education, commentary, criticism, and non-commercial research are understood to fall within fair use and are welcomed.
 
-The following actions **are not permitted** without explicit written consent from the author:
+### Similarity Disclaimer
 
-- **Publishing** this project, its code, or any substantial portion of it — whether publicly, privately, or through a third-party platform
-- **Monetizing** this project in any form, including but not limited to: selling access, integrating it into a paid product, using it in a commercial service, or generating ad revenue through it
-- **Redistributing** modified or unmodified versions of this codebase under a different name or identity
-- **Claiming ownership** of any part of this project, its design, logic, or architecture
+WatchVault was developed independently. Any resemblance to existing products, services, or applications in name, design, or functionality is coincidental and unintentional.
 
-If you wish to use WatchVault beyond the terms above — for a commercial project, a collaborative venture, or any revenue-generating purpose — please reach out directly. Reasonable arrangements, including **royalty agreements or licensing terms**, can be discussed respectfully and fairly.
+### Usage Summary
 
-📬 **Contact:** jbmsacps@gmail.com
-
----
-
-## 🤝 Fair Use
-
-WatchVault acknowledges and respects the principle of **fair use**. Use of this project for personal education, commentary, criticism, or non-commercial research is understood to fall within fair use and is welcomed.
-
----
-
-## 🌐 Coincidental Similarity Disclaimer
-
-WatchVault was designed and developed independently, from concept to execution. Any resemblance this project may bear to any other website, application, product, or service is **entirely coincidental and unintentional**. No existing platform, product, or codebase was referenced, copied, or used as a template during development.
-
----
-
-## 📊 Usage Summary
-
-| Use Case | Permitted? |
-|----------|-----------|
-| Personal learning & study | ✅ Yes |
-| Private forking & experimentation | ✅ Yes |
-| Sharing with attribution | ✅ Yes |
-| Academic reference with credit | ✅ Yes |
-| Publishing publicly | ⚠️ Permission required |
-| Commercial or monetized use | ⚠️ Permission + royalty agreement required |
+| Use Case | Status |
+|----------|--------|
+| Personal learning & study | ✅ Permitted |
+| Private forking & experimentation | ✅ Permitted |
+| Sharing with attribution | ✅ Permitted |
+| Academic reference with credit | ✅ Permitted |
+| Public publishing | ⚠️ Permission required |
+| Commercial or monetized use | ⚠️ Permission + licensing required |
 | Redistribution under a different name | ❌ Not permitted |
 | Claiming ownership | ❌ Not permitted |
 
----
-
-## 📜 Legal Standing
-
-This copyright notice constitutes a legally binding statement of ownership and usage terms. Unauthorized commercial use, redistribution, or misrepresentation of this work may be subject to applicable intellectual property and copyright law. The author reserves the right to pursue all available remedies in response to any violation of these terms.
+Unauthorized use may be subject to applicable intellectual property and copyright law. The author reserves the right to pursue all available remedies in response to violations.
 
 ---
 
 <div align="center">
 
-*Last updated: April 2026*
+*Last updated: April 2026 · Created by Joshua Baskar*
 
-*WatchVault · Created by Joshua Baskar · [GitHub](https://github.com/jbmsacps-stack) · [LinkedIn](https://www.linkedin.com/in/joshua-baskar-2b4a88381/)*
-
-⭐ If you find this project useful or impressive, consider giving it a star — it means a lot to an aspiring developer!
+⭐ If you found this useful, a star is appreciated.
 
 </div>
