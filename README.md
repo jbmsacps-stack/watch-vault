@@ -24,7 +24,7 @@ Create lists for everything you want to watch — Movies, Series, Anime.
 
 WatchVault is a full-stack web application for organizing personal entertainment. Rather than passive logging, it gives users full control through custom lists and flexible collection management — whether queuing a weekend watchlist, tracking series progress, or sorting anime by season.
 
-WatchVault is not a streaming platform. It is a personal organization tool.
+>WatchVault is not a streaming platform. It is a personal organization tool.
 
 This project was built as a portfolio piece, developed primarily through my own problem-solving and technical skills. The entire application — frontend, backend, database, authentication, and deployment — was completed independently within a 12-hour build window.
 
