@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node server.js",
+=======
+>>>>>>> 20f8f0b (Initial WatchVault project)
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
