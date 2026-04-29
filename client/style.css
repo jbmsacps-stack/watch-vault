@@ -841,6 +841,11 @@ body.theme-switching {
 }
 
 @media (max-width: 520px) {
+  .navbar{
+    width: 100%;
+    border-radius: 0%;
+  }
+
   .logo {
     font-size: 18px;
   }
