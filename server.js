@@ -3,11 +3,8 @@ import fetch from "node-fetch";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
-<<<<<<< HEAD
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-=======
->>>>>>> 20f8f0b (Initial WatchVault project)
 
 import authRoutes from "./routes/auth.js";
 import listRoutes from "./routes/lists.js";
@@ -15,18 +12,14 @@ import savedTitleRoutes from "./routes/savedTitles.js";
 
 dotenv.config();
 
-<<<<<<< HEAD
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-=======
->>>>>>> 20f8f0b (Initial WatchVault project)
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-<<<<<<< HEAD
 app.use(express.static(join(__dirname, "client")));
 
 if (process.env.MONGO_URI) {
@@ -36,24 +29,15 @@ if (process.env.MONGO_URI) {
 } else {
   console.warn("MONGO_URI not set — database features will not work");
 }
-=======
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log("MongoDB connection error:", err));
-
->>>>>>> 20f8f0b (Initial WatchVault project)
 
 app.get("/api/search", async (req, res) => {
   const query = req.query.q;
   const id = req.query.id;
 
-<<<<<<< HEAD
   if (!process.env.API_KEY) {
     return res.status(500).json({ Response: "False", Error: "API key not configured" });
   }
 
-=======
->>>>>>> 20f8f0b (Initial WatchVault project)
   let url = "";
 
   if (id) {
@@ -74,13 +58,9 @@ app.get("/api/search", async (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/lists", listRoutes);
 app.use("/api/saved-titles", savedTitleRoutes);
-<<<<<<< HEAD
 
 app.get("/{*path}", (req, res) => {
   res.sendFile(join(__dirname, "client", "index.html"));
 });
 
 app.listen(5000, "0.0.0.0", () => console.log("Server running on http://0.0.0.0:5000"));
-=======
-app.listen(5000, () => console.log("Server running on http://localhost:5000"));
->>>>>>> 20f8f0b (Initial WatchVault project)
