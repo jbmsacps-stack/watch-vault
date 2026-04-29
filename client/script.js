@@ -647,7 +647,9 @@ window.addEventListener("load", () => {
   document.body.classList.add("page-in");
 
   requestAnimationFrame(() => {
-    document.body.classList.remove("page-in");
+    requestAnimationFrame(() => {
+      document.body.classList.remove("page-in");
+    });
   });
 });
 
@@ -658,8 +660,7 @@ document.querySelectorAll("a[href]").forEach((link) => {
 
     if (
       url.startsWith("http") ||
-      url.startsWith("#") ||
-      url.includes("#")
+      url.startsWith("#")
     ) {
       return;
     }
@@ -670,7 +671,7 @@ document.querySelectorAll("a[href]").forEach((link) => {
 
     setTimeout(() => {
       window.location.href = url;
-    }, 300);
+    }, 350);
   });
 });
 
