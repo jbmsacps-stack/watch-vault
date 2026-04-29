@@ -1,3 +1,44 @@
+modules = ["web", "nodejs-20"]
+[agent]
+expertMode = true
+stack = "BEST_EFFORT_FALLBACK"
+
+[nix]
+channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm start"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["node", "server.js"]
+
+[userenv]
+
+[userenv.shared]
+JWT_SECRET = "337d4ddee3ac8ab4ec8c15bbf2187de1a3757fb0c463fe0c866970814fcad4acab175bf2efc84ab62fe6482f2cfd1695"
