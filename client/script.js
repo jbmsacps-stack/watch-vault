@@ -71,7 +71,7 @@ if (searchForm && searchInput && exploreGrid) {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/search?q=${encodeURIComponent(query)}`
+        `/api/search?q=${encodeURIComponent(query)}`
       );
 
       const data = await response.json();
@@ -99,7 +99,7 @@ async function displayResults(items) {
   const detailedItems = await Promise.all(
     items.slice(0, 8).map(async (item) => {
       const res = await fetch(
-        `http://localhost:5000/api/search?id=${item.imdbID}`
+        `/api/search?id=${item.imdbID}`
       );
       return res.json();
     })
@@ -149,7 +149,7 @@ async function loadTrendingTitles() {
       trendingQueries[Math.floor(Math.random() * trendingQueries.length)];
 
     const response = await fetch(
-      `http://localhost:5000/api/search?q=${encodeURIComponent(randomQuery)}`
+      `/api/search?q=${encodeURIComponent(randomQuery)}`
     );
 
     const data = await response.json();
@@ -264,7 +264,7 @@ document.addEventListener("click", async (e) => {
   };
 
   try {
-    const res = await fetch("http://localhost:5000/api/saved-titles", {
+    const res = await fetch("/api/saved-titles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -328,7 +328,7 @@ document.addEventListener("change", async (e) => {
   const id = e.target.dataset.id;
   const token = localStorage.getItem("token");
 
-  await fetch(`http://localhost:5000/api/saved-titles/${id}`, {
+  await fetch(`/api/saved-titles/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -353,7 +353,7 @@ function saveLists() {
 async function updateListInDB(list) {
   const token = localStorage.getItem("token");
 
-  await fetch(`http://localhost:5000/api/lists/${list._id}`, {
+  await fetch(`/api/lists/${list._id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -369,7 +369,7 @@ async function fetchLists() {
   const token = localStorage.getItem("token");
 
   if (!customLists || !token) return;
-  const res = await fetch("http://localhost:5000/api/lists", {
+  const res = await fetch("/api/lists", {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -439,7 +439,7 @@ if (createListBtn && customListInput) {
 
     const token = localStorage.getItem("token");
 
-    await fetch("http://localhost:5000/api/lists", {
+    await fetch("/api/lists", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -504,7 +504,7 @@ document.addEventListener("click", async (e) => {
     const listId = e.target.dataset.deleteList;
     const token = localStorage.getItem("token");
 
-    await fetch(`http://localhost:5000/api/lists/${listId}`, {
+    await fetch(`/api/lists/${listId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
@@ -616,7 +616,7 @@ document.getElementById("clearAllBtn")?.addEventListener("click", async () => {
   for (const btn of savedItems) {
     const id = btn.dataset.deleteSaved;
 
-    await fetch(`http://localhost:5000/api/saved-titles/${id}`, {
+    await fetch(`/api/saved-titles/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
@@ -633,7 +633,7 @@ document.addEventListener("click", async (e) => {
   const id = e.target.dataset.deleteSaved;
   const token = localStorage.getItem("token");
 
-  await fetch(`http://localhost:5000/api/saved-titles/${id}`, {
+  await fetch(`/api/saved-titles/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`
@@ -675,7 +675,7 @@ document.querySelectorAll("a[href]").forEach((link) => {
 });
 
 async function loginUser(email, password) {
-  const res = await fetch("http://localhost:5000/api/auth/login", {
+  const res = await fetch("/api/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -715,7 +715,7 @@ if (loginForm) {
     const authMessage = document.getElementById("authMessage");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -749,7 +749,7 @@ if (registerForm) {
     const msg = document.getElementById("registerMessage");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -777,7 +777,7 @@ async function fetchSavedTitles() {
   const token = localStorage.getItem("token");
   if (!token || !savedTitleList) return;
 
-  const res = await fetch("http://localhost:5000/api/saved-titles", {
+  const res = await fetch("/api/saved-titles", {
     headers: {
       Authorization: `Bearer ${token}`
     }
