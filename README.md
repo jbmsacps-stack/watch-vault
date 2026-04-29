@@ -4,11 +4,6 @@
 
 <h1>WatchVault</h1>
 
-<p>
-  <strong>Build your personal watch vault.</strong><br>
-  Create custom collections for Movies, Series, Anime, and everything you plan to watch.
-</p>
-
 </div>
 
 # WatchVault
