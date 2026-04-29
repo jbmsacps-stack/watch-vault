@@ -61,7 +61,6 @@ Whether you're queuing up a weekend watchlist, tracking where you left off in a 
 | Home | Explore | My List |
 |------|---------|---------|
 | ![Home](screenshots/home1.png) | ![Explore](screenshots/explore1.png) | ![MyList](screenshots/mylist1.png) |
-| ![Home](screenshots/home2.png) | ![Explore](screenshots/explore2.png) | ![MyList](screenshots/mylist2.png) |
 
 ---
 
