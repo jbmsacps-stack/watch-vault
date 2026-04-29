@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATCH VAULT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="index.html" class="logo">
+                <img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png"
+                    alt="WatchVault logo" />
+                <span>WatchVault</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mylist.html">MyList</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+                    <span class="toggle-track"></span>
+                    <span class="toggle-thumb"></span>
+                </button>
+                <a href="login.html" class="signin-btn">Sign In</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="explore-page">
+        <section class="explore-hero">
+            <p class="eyebrow">Discover titles</p>
+            <h1>Explore movies, series, and anime.</h1>
+            <p>Search, browse, and save titles into your WatchVault lists.</p>
+
+            <form class="search-panel" id="searchForm">
+                <input type="search" id="searchInput" placeholder="Search for Interstellar, Breaking Bad, Naruto..." />
+                <button type="submit">Search</button>
+            </form>
+
+        </section>
+
+        <section class="filter-section">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Movies</button>
+            <button class="filter-btn">Series</button>
+        </section>
+        <section class="selected-display" id="selectedDisplay">
+            <p class="eyebrow">Selected title</p>
+            <h2 id="selectedTitle">Click a card to preview it here</h2>
+            <p id="selectedMeta"></p>
+            <p id="selectedPlot"></p>
+        </section>
+        <section class="explore-grid" id="exploreGrid"></section>
+    </main>
+    <div class="modal" id="movieModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">✕</button>
+
+            <img id="modalPoster" src="" alt="poster">
+
+            <div class="modal-info">
+                <h2 id="modalTitle"></h2>
+                <p id="modalMeta"></p>
+                <p id="modalPlot"></p>
+            </div>
+        </div>
+    </div>
+    <div class="movie-modal" id="movieModal">
+        <div class="movie-modal-content">
+            <button class="modal-close" id="modalClose" type="button">×</button>
+
+            <div class="modal-poster-wrap">
+                <img id="modalPoster" src="" alt="Selected title poster">
+            </div>
+
+            <div class="modal-info">
+                <span id="modalType"></span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalMeta"></p>
+                <p id="modalPlot"></p>
+
+                <button class="modal-add-btn" type="button">Add to List</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

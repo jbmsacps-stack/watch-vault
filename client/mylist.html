@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Vault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="index.html" class="logo">
+                <img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png"
+                    alt="WatchVault logo" />
+                <span>WatchVault</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mylist.html">MyList</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+                    <span class="toggle-track"></span>
+                    <span class="toggle-thumb"></span>
+                </button>
+                <a href="login.html" class="signin-btn">Sign In</a>
+            </div>
+
+        </nav>
+    </header>
+    <main class="mylist-page">
+        <section class="mylist-hero">
+            <p class="eyebrow">Your vault</p>
+            <h1>Build custom watch lists.</h1>
+            <p>Create lists for movies, series, anime, rewatch plans, weekend picks, or anything you want.</p>
+        </section>
+
+        <section class="create-list-box">
+            <input type="text" id="customListInput" placeholder="Create a list: Weekend Watchlist..." />
+            <button id="createListBtn" type="button">Create List</button>
+        </section>
+
+        
+        <section class="custom-lists" id="customLists"></section>
+        <div class="edit-list-modal" id="editListModal">
+            <div class="edit-list-box">
+                <h2 id="editModalTitle">Edit List</h2>
+                
+                <input type="text" id="editListInput" placeholder="Enter value..." />
+                
+                <div class="edit-actions">
+                    <button id="cancelEditBtn" type="button">Cancel</button>
+                    <button id="saveEditBtn" type="button">Save</button>
+                </div>
+            </div>
+        </div>
+        <section class="added-from-explore">
+            <h2>Added From Explore</h2>
+            <ul class="saved-title-list" id="savedTitleList"></ul>
+            <button id="clearAllBtn">Clear All</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
