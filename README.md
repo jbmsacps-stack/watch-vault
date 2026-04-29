@@ -1,6 +1,15 @@
 <div align="center">
 
-<img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png" alt="WatchVault Logo" width="120"/>
+<img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png" alt="WatchVault Logo" width="150" />
+
+<h1>WatchVault</h1>
+
+<p>
+  <strong>Build your personal watch vault.</strong><br>
+  Create custom collections for Movies, Series, Anime, and everything you plan to watch.
+</p>
+
+</div>
 
 # WatchVault
 
@@ -33,11 +42,25 @@ The frontend was fully designed and implemented by me using vanilla HTML, CSS, a
 
 ## Screenshots
 
-| Home | Explore | My List |
-|------|---------|---------|
-| ![Home](screenshots/home1.png) | ![Explore](screenshots/explore1.png) | ![MyList](screenshots/mylist1.png) |
+<div align="center">
 
----
+### Home Page
+
+<img src="screenshots/home1.png" alt="WatchVault Home Page Screenshot" width="100%" />
+
+<br><br>
+
+### Explore Page
+
+<img src="screenshots/explore1.png" alt="WatchVault Explore Page Screenshot" width="100%" />
+
+<br><br>
+
+### My List Page
+
+<img src="screenshots/mylist1.png" alt="WatchVault My List Page Screenshot" width="100%" />
+
+</div>
 
 ## Features
 
