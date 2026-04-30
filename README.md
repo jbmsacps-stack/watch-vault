@@ -29,7 +29,8 @@ WatchVault is a full-stack web application for organizing personal entertainment
 
 This project was built as a portfolio piece, developed primarily through my own problem-solving and technical skills. The entire application — frontend, backend, database, authentication, and deployment — was completed independently within a 12-hour build window.
 
-The frontend was fully designed and implemented by me using vanilla HTML, CSS, and JavaScript, without relying on any frameworks or UI libraries. ChatGPT was used only as a supplementary reference tool for clarification and guidance, not for generating the core implementation.
+The frontend was designed and built using vanilla HTML, CSS, and JavaScript without any frameworks or UI libraries. ChatGPT was used only as a reference tool for clarification and guidance during development.
+
 ---
 
 ## Screenshots
