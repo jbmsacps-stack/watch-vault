@@ -71,11 +71,7 @@ if (searchForm && searchInput && exploreGrid) {
 
     try {
       const response = await fetch(
-<<<<<<< HEAD
         `/api/search?q=${encodeURIComponent(query)}`
-=======
-        `http://localhost:5000/api/search?q=${encodeURIComponent(query)}`
->>>>>>> 20f8f0b (Initial WatchVault project)
       );
 
       const data = await response.json();
@@ -103,11 +99,7 @@ async function displayResults(items) {
   const detailedItems = await Promise.all(
     items.slice(0, 8).map(async (item) => {
       const res = await fetch(
-<<<<<<< HEAD
         `/api/search?id=${item.imdbID}`
-=======
-        `http://localhost:5000/api/search?id=${item.imdbID}`
->>>>>>> 20f8f0b (Initial WatchVault project)
       );
       return res.json();
     })
@@ -157,11 +149,7 @@ async function loadTrendingTitles() {
       trendingQueries[Math.floor(Math.random() * trendingQueries.length)];
 
     const response = await fetch(
-<<<<<<< HEAD
       `/api/search?q=${encodeURIComponent(randomQuery)}`
-=======
-      `http://localhost:5000/api/search?q=${encodeURIComponent(randomQuery)}`
->>>>>>> 20f8f0b (Initial WatchVault project)
     );
 
     const data = await response.json();
@@ -276,11 +264,7 @@ document.addEventListener("click", async (e) => {
   };
 
   try {
-<<<<<<< HEAD
     const res = await fetch("/api/saved-titles", {
-=======
-    const res = await fetch("http://localhost:5000/api/saved-titles", {
->>>>>>> 20f8f0b (Initial WatchVault project)
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -344,11 +328,7 @@ document.addEventListener("change", async (e) => {
   const id = e.target.dataset.id;
   const token = localStorage.getItem("token");
 
-<<<<<<< HEAD
   await fetch(`/api/saved-titles/${id}`, {
-=======
-  await fetch(`http://localhost:5000/api/saved-titles/${id}`, {
->>>>>>> 20f8f0b (Initial WatchVault project)
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -373,11 +353,7 @@ function saveLists() {
 async function updateListInDB(list) {
   const token = localStorage.getItem("token");
 
-<<<<<<< HEAD
   await fetch(`/api/lists/${list._id}`, {
-=======
-  await fetch(`http://localhost:5000/api/lists/${list._id}`, {
->>>>>>> 20f8f0b (Initial WatchVault project)
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -393,11 +369,7 @@ async function fetchLists() {
   const token = localStorage.getItem("token");
 
   if (!customLists || !token) return;
-<<<<<<< HEAD
   const res = await fetch("/api/lists", {
-=======
-  const res = await fetch("http://localhost:5000/api/lists", {
->>>>>>> 20f8f0b (Initial WatchVault project)
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -467,11 +439,7 @@ if (createListBtn && customListInput) {
 
     const token = localStorage.getItem("token");
 
-<<<<<<< HEAD
     await fetch("/api/lists", {
-=======
-    await fetch("http://localhost:5000/api/lists", {
->>>>>>> 20f8f0b (Initial WatchVault project)
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -536,11 +504,7 @@ document.addEventListener("click", async (e) => {
     const listId = e.target.dataset.deleteList;
     const token = localStorage.getItem("token");
 
-<<<<<<< HEAD
     await fetch(`/api/lists/${listId}`, {
-=======
-    await fetch(`http://localhost:5000/api/lists/${listId}`, {
->>>>>>> 20f8f0b (Initial WatchVault project)
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
@@ -652,11 +616,7 @@ document.getElementById("clearAllBtn")?.addEventListener("click", async () => {
   for (const btn of savedItems) {
     const id = btn.dataset.deleteSaved;
 
-<<<<<<< HEAD
     await fetch(`/api/saved-titles/${id}`, {
-=======
-    await fetch(`http://localhost:5000/api/saved-titles/${id}`, {
->>>>>>> 20f8f0b (Initial WatchVault project)
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
@@ -673,11 +633,7 @@ document.addEventListener("click", async (e) => {
   const id = e.target.dataset.deleteSaved;
   const token = localStorage.getItem("token");
 
-<<<<<<< HEAD
   await fetch(`/api/saved-titles/${id}`, {
-=======
-  await fetch(`http://localhost:5000/api/saved-titles/${id}`, {
->>>>>>> 20f8f0b (Initial WatchVault project)
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`
@@ -691,13 +647,9 @@ window.addEventListener("load", () => {
   document.body.classList.add("page-in");
 
   requestAnimationFrame(() => {
-<<<<<<< HEAD
     requestAnimationFrame(() => {
       document.body.classList.remove("page-in");
     });
-=======
-    document.body.classList.remove("page-in");
->>>>>>> 20f8f0b (Initial WatchVault project)
   });
 });
 
@@ -708,12 +660,7 @@ document.querySelectorAll("a[href]").forEach((link) => {
 
     if (
       url.startsWith("http") ||
-<<<<<<< HEAD
       url.startsWith("#")
-=======
-      url.startsWith("#") ||
-      url.includes("#")
->>>>>>> 20f8f0b (Initial WatchVault project)
     ) {
       return;
     }
@@ -724,20 +671,12 @@ document.querySelectorAll("a[href]").forEach((link) => {
 
     setTimeout(() => {
       window.location.href = url;
-<<<<<<< HEAD
     }, 350);
-=======
-    }, 300);
->>>>>>> 20f8f0b (Initial WatchVault project)
   });
 });
 
 async function loginUser(email, password) {
-<<<<<<< HEAD
   const res = await fetch("/api/auth/login", {
-=======
-  const res = await fetch("http://localhost:5000/api/auth/login", {
->>>>>>> 20f8f0b (Initial WatchVault project)
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -777,11 +716,7 @@ if (loginForm) {
     const authMessage = document.getElementById("authMessage");
 
     try {
-<<<<<<< HEAD
       const res = await fetch("/api/auth/login", {
-=======
-      const res = await fetch("http://localhost:5000/api/auth/login", {
->>>>>>> 20f8f0b (Initial WatchVault project)
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -815,11 +750,7 @@ if (registerForm) {
     const msg = document.getElementById("registerMessage");
 
     try {
-<<<<<<< HEAD
       const res = await fetch("/api/auth/register", {
-=======
-      const res = await fetch("http://localhost:5000/api/auth/register", {
->>>>>>> 20f8f0b (Initial WatchVault project)
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -847,11 +778,7 @@ async function fetchSavedTitles() {
   const token = localStorage.getItem("token");
   if (!token || !savedTitleList) return;
 
-<<<<<<< HEAD
   const res = await fetch("/api/saved-titles", {
-=======
-  const res = await fetch("http://localhost:5000/api/saved-titles", {
->>>>>>> 20f8f0b (Initial WatchVault project)
     headers: {
       Authorization: `Bearer ${token}`
     }
