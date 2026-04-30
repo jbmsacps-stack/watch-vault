@@ -432,7 +432,7 @@ All movies, series, anime titles, images, and related content belong to their re
 <<<<<<< HEAD
 *Last updated: April 2026 · Created by Joshua Baskar*
 
-⭐ If you found this useful, a star is appreciated.
+⭐ If you found this useful, starring it is appreciated.
 =======
 ⭐ If you find this project useful, consider giving it a star!
 >>>>>>> 4a44557 (Enhance README with project details and features)
