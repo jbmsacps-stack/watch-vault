@@ -1579,19 +1579,6 @@ body.light-mode .filter-btn:hover,body.light-mode .filter-btn.active {
 .poster-card h3 {
   font-size:16px
 }
-body {
-  opacity:1;
-  transform:translateY(0);
-  transition:opacity 0.35s ease,transform 0.35s ease
-}
-body.page-out {
-  opacity:0;
-  transform:translateY(8px)
-}
-body.page-in {
-  opacity:0;
-  transform:translateY(8px)
-}
 .auth-page {
   min-height:100vh;
   display:grid;
