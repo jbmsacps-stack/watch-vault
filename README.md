@@ -1,5 +1,4 @@
 <div align="center">
-
 <img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png" alt="WatchVault Logo" width="150" />
 
 # WatchVault
@@ -96,12 +95,12 @@ The frontend uses no frameworks or libraries by design — a deliberate choice t
 
 ```
 Client (HTML / CSS / JS)
-        ↓
-   Express REST API
-        ↓
-   Business Logic Layer
-        ↓
-   MongoDB via Mongoose
+       ↓
+  Express REST API
+       ↓
+  Business Logic Layer
+       ↓
+  MongoDB via Mongoose
 ```
 
 ---
