@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WatchVault</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | WatchVault</title>
+    <meta name="description" content="Sign in to WatchVault to access your saved movies, series, anime titles, custom lists, and personal entertainment vault.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png">
 </head>
 
 <body class="auth-page">
-  <main class="auth-wrapper">
-    <section class="auth-card">
-      <a href="index.html" class="auth-logo">
-        <span>WatchVault</span>
-      </a>
+    <main class="auth-wrapper">
+        <section class="auth-card" aria-label="WatchVault sign in form">
+            <a href="index.html" class="auth-logo" aria-label="Go to WatchVault home">
+                <span>WatchVault</span>
+            </a>
 
-      <p class="eyebrow">Welcome back</p>
-      <h1>Sign in to your vault.</h1>
-      <p class="auth-subtitle">Access your saved titles, custom lists, and watch plans.</p>
+            <p class="eyebrow">Welcome back</p>
+            <h1>Sign in to your vault.</h1>
+            <p class="auth-subtitle">Access your saved titles, custom lists, and watch plans.</p>
 
-      <form id="loginForm" class="auth-form">
-        <input type="email" id="loginEmail" placeholder="Email address" required />
-        <input type="password" id="loginPassword" placeholder="Password" required />
+            <form id="loginForm" class="auth-form">
+                <input type="email" id="loginEmail" name="email" placeholder="Email address" autocomplete="email" required>
+                <input type="password" id="loginPassword" name="password" placeholder="Password" autocomplete="current-password" required>
 
-        <button type="submit">Sign In</button>
-      </form>
+                <button type="submit">Sign In</button>
+            </form>
 
-      <p class="auth-switch">
-        New here?
-        <a href="register.html">Create an account</a>
-      </p>
+            <p class="auth-switch">
+                New here?
+                <a href="register.html">Create an account</a>
+            </p>
 
-      <p class="auth-message" id="authMessage"></p>
-    </section>
-  </main>
+            <p class="auth-message" id="authMessage" aria-live="polite"></p>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
+
 </html>

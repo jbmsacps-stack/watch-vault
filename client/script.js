@@ -1,101 +1,76 @@
 const themeToggle = document.getElementById("themeToggle");
-
 if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light-mode");
 }
-
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
-
     const isLight = document.body.classList.contains("light-mode");
-
     localStorage.setItem("theme", isLight ? "light" : "dark");
-
     themeToggle.setAttribute(
       "aria-label",
       isLight ? "Switch to dark mode" : "Switch to light mode"
     );
-
     document.body.classList.add("theme-switching");
     themeToggle.classList.add("clicked");
-
     setTimeout(() => {
       document.body.classList.remove("theme-switching");
       themeToggle.classList.remove("clicked");
     }, 450);
   });
 }
-
 const emailEl = document.querySelector(".email-display");
-
 if (emailEl) {
   emailEl.addEventListener("click", () => {
     navigator.clipboard.writeText("jbmsacps@gmail.com").then(() => {
       emailEl.textContent = "Copied!";
     });
-
     setTimeout(() => {
       emailEl.textContent = "jbmsacps@gmail.com";
     }, 1200);
   });
 }
-
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 const searchPanel = document.querySelector(".search-panel");
 const exploreGrid = document.getElementById("exploreGrid");
-
 if (searchInput && searchPanel) {
   searchInput.addEventListener("focus", () => {
     searchPanel.classList.add("active");
   });
-
   searchInput.addEventListener("blur", () => {
     searchPanel.classList.remove("active");
   });
 }
-
 if (searchForm && searchInput && exploreGrid) {
   searchForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const query = searchInput.value.trim();
-
     if (query === "") {
       exploreGrid.innerHTML = `<p class="empty-message">Type something to search.</p>`;
       return;
     }
-
     exploreGrid.innerHTML = `<p class="empty-message">Searching...</p>`;
-
     try {
       const response = await fetch(
         `/api/search?q=${encodeURIComponent(query)}`
       );
-
       const data = await response.json();
-
       if (data.Response === "False") {
         exploreGrid.innerHTML = `<p class="empty-message">${data.Error}</p>`;
         return;
       }
-
       displayResults(data.Search);
     } catch (error) {
       exploreGrid.innerHTML = `<p class="empty-message">Something went wrong. Try again.</p>`;
       console.error(error);
     }
   });
-
   loadTrendingTitles();
 }
-
 async function displayResults(items) {
   if (!exploreGrid) return;
-
   exploreGrid.innerHTML = `<p class="empty-message">Loading details...</p>`;
-
   const detailedItems = await Promise.all(
     items.slice(0, 8).map(async (item) => {
       const res = await fetch(
@@ -104,15 +79,12 @@ async function displayResults(items) {
       return res.json();
     })
   );
-
   exploreGrid.innerHTML = detailedItems
     .map((item) => {
       const poster =
         item.Poster !== "N/A" ? item.Poster : "images/no-poster.jpg";
-
       const plot = item.Plot !== "N/A" ? item.Plot : "No description available.";
       const genre = item.Genre !== "N/A" ? item.Genre : item.Type;
-
       return `
   <article 
   class="explore-card"
@@ -125,7 +97,6 @@ async function displayResults(items) {
   data-type="${item.Type}"
 >
     <img src="${poster}" alt="${item.Title} poster">
-
     <div class="explore-card-body">
       <span>${item.Type}</span>
       <h3>${item.Title}</h3>
@@ -137,48 +108,36 @@ async function displayResults(items) {
     })
     .join("");
 }
-
 async function loadTrendingTitles() {
   if (!exploreGrid) return;
-
   exploreGrid.innerHTML = `<p class="empty-message">Loading trending picks...</p>`;
-
   try {
     const trendingQueries = ["batman", "naruto", "breaking bad", "dune"];
     const randomQuery =
       trendingQueries[Math.floor(Math.random() * trendingQueries.length)];
-
     const response = await fetch(
       `/api/search?q=${encodeURIComponent(randomQuery)}`
     );
-
     const data = await response.json();
-
     if (data.Response === "False") {
       exploreGrid.innerHTML = `<p class="empty-message">No trending picks found.</p>`;
       return;
     }
-
     displayResults(data.Search);
   } catch (error) {
     exploreGrid.innerHTML = `<p class="empty-message">Could not load trending picks.</p>`;
     console.error(error);
   }
 }
-
 const filterButtons = document.querySelectorAll(".filter-btn");
-
 filterButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     filterButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
-
     const filter = btn.textContent.toLowerCase();
     const cards = document.querySelectorAll(".explore-card");
-
     cards.forEach((card) => {
       const type = card.dataset.type;
-
       if (filter === "all") {
         card.style.display = "flex";
       } else if (filter === "movies" && type === "movie") {
@@ -191,7 +150,6 @@ filterButtons.forEach((btn) => {
     });
   });
 });
-
 const movieModal = document.getElementById("movieModal");
 const modalClose = document.getElementById("modalClose");
 const modalPoster = document.getElementById("modalPoster");
@@ -199,35 +157,27 @@ const modalType = document.getElementById("modalType");
 const modalTitle = document.getElementById("modalTitle");
 const modalMeta = document.getElementById("modalMeta");
 const modalPlot = document.getElementById("modalPlot");
-
 document.addEventListener("click", (e) => {
   const card = e.target.closest(".explore-card");
-
   if (!card || !movieModal) return;
-
   if (e.target.classList.contains("add-list-btn")) {
     return;
   }
-
   if (!modalPoster || !modalTitle || !modalType || !modalMeta || !modalPlot) return;
-
   modalPoster.src = card.dataset.poster;
   modalTitle.textContent = card.dataset.title;
   modalType.textContent = card.dataset.type;
   modalMeta.textContent = `${card.dataset.year} • ${card.dataset.genre}`;
   modalPlot.textContent = card.dataset.plot;
-
   movieModal.classList.add("active");
   document.body.style.overflow = "hidden";
 });
-
 if (modalClose) {
   modalClose.addEventListener("click", () => {
     movieModal.classList.remove("active");
     document.body.style.overflow = "";
   });
 }
-
 if (movieModal) {
   movieModal.addEventListener("click", (e) => {
     if (e.target === movieModal) {
@@ -236,25 +186,18 @@ if (movieModal) {
     }
   });
 }
-
 document.addEventListener("click", async (e) => {
   if (!e.target.classList.contains("add-list-btn")) return;
-
   const card = e.target.closest(".explore-card");
   if (!card) return;
-
   const token = localStorage.getItem("token");
-
   if (!token) {
     e.target.textContent = "Login Required";
-
     setTimeout(() => {
       e.target.textContent = "Add to List";
     }, 1200);
-
     return;
   }
-
   const item = {
     imdbId: card.dataset.id,
     title: card.dataset.title,
@@ -262,7 +205,6 @@ document.addEventListener("click", async (e) => {
     type: card.dataset.type,
     completed: false
   };
-
   try {
     const res = await fetch("/api/saved-titles", {
       method: "POST",
@@ -272,9 +214,7 @@ document.addEventListener("click", async (e) => {
       },
       body: JSON.stringify(item)
     });
-
     const data = await res.json();
-
     if (res.ok) {
       e.target.textContent = "Added";
     } else {
@@ -283,34 +223,26 @@ document.addEventListener("click", async (e) => {
   } catch (error) {
     e.target.textContent = "Error";
   }
-
   setTimeout(() => {
     e.target.textContent = "Add to List";
   }, 1200);
 });
-
 const savedTitleList = document.getElementById("savedTitleList");
-
 function renderSavedTitles(titles) {
   if (!savedTitleList) return;
-
   if (titles.length === 0) {
     savedTitleList.innerHTML = `<p class="empty-message">No titles added yet.</p>`;
     return;
   }
-
   savedTitleList.innerHTML = titles
     .map((item) => {
       return `
         <li class="saved-title-item">
           <input type="checkbox" ${item.completed ? "checked" : ""} data-id="${item._id}">
-
           <a href="https://www.imdb.com/title/${item.imdbId}" target="_blank">
             ${item.title}
           </a>
-
           <span>${item.year} • ${item.type}</span>
-
           <button class="delete-saved-btn" data-delete-saved="${item._id}" type="button">
             Delete
           </button>
@@ -319,15 +251,11 @@ function renderSavedTitles(titles) {
     })
     .join("");
 }
-
 fetchSavedTitles();
-
 document.addEventListener("change", async (e) => {
   if (!e.target.matches(".saved-title-item input")) return;
-
   const id = e.target.dataset.id;
   const token = localStorage.getItem("token");
-
   await fetch(`/api/saved-titles/${id}`, {
     method: "PATCH",
     headers: {
@@ -339,20 +267,15 @@ document.addEventListener("change", async (e) => {
     })
   });
 });
-
 const customListInput = document.getElementById("customListInput");
 const createListBtn = document.getElementById("createListBtn");
 const customLists = document.getElementById("customLists");
-
 let lists = [];
-
 function saveLists() {
   localStorage.setItem("watchVaultCustomLists", JSON.stringify(lists));
 }
-
 async function updateListInDB(list) {
   const token = localStorage.getItem("token");
-
   await fetch(`/api/lists/${list._id}`, {
     method: "PUT",
     headers: {
@@ -361,29 +284,22 @@ async function updateListInDB(list) {
     },
     body: JSON.stringify(list)
   });
-
   fetchLists();
 }
-
 async function fetchLists() {
   const token = localStorage.getItem("token");
-
   if (!customLists || !token) return;
   const res = await fetch("/api/lists", {
     headers: {
       Authorization: `Bearer ${token}`
     }
   });
-
   const data = await res.json();
-
   lists = data;
   renderLists();
 }
-
 function renderLists() {
   if (!customLists) return;
-
   customLists.innerHTML = lists
     .map((list, listIndex) => {
       return `
@@ -393,29 +309,23 @@ function renderLists() {
       <h3>${list.name}</h3>
       <p>${list.type || "General"}</p>
     </div>
-
     <button class="list-menu-btn" data-menu="${list._id}" type="button">⋯</button>
-
     <div class="list-menu" id="menu-${list._id}">
       <button data-rename-list="${list._id}" type="button">Rename</button>
       <button data-change-type="${list._id}" type="button">Change Type</button>
-
       <div class="menu-colors">
         <span data-color="${list._id}|#1a1a1a" style="background:#1a1a1a"></span>
         <span data-color="${list._id}-#3a1111" style="background:#3a1111"></span>
         <span data-color="${list._id}-#251133" style="background:#251133"></span>
         <span data-color="${list._id}-#10251c" style="background:#10251c"></span>
       </div>
-
       <button data-delete-list="${list._id}" type="button">Delete List</button>
     </div>
   </div>
-
   <div class="list-tools">
     <input type="text" placeholder="Add movie or series..." data-list-input="${list._id}">
     <button type="button" data-add-item="${list._id}">Add</button>
   </div>
-
   <ul class="list-items">
     ${list.items.map((item, itemIndex) => `
       <li>
@@ -430,15 +340,11 @@ function renderLists() {
     })
     .join("");
 }
-
 if (createListBtn && customListInput) {
   createListBtn.addEventListener("click", async () => {
     const name = customListInput.value.trim();
-
     if (!name) return;
-
     const token = localStorage.getItem("token");
-
     await fetch("/api/lists", {
       method: "POST",
       headers: {
@@ -452,154 +358,118 @@ if (createListBtn && customListInput) {
         items: []
       })
     });
-
     customListInput.value = "";
     fetchLists();
   });
 }
-
 document.addEventListener("click", async (e) => {
   if (e.target.dataset.menu) {
     const menu = document.getElementById(`menu-${e.target.dataset.menu}`);
     menu.classList.toggle("active");
   }
-
   if (e.target.dataset.renameList) {
     openEditModal("rename", e.target.dataset.renameList);
   }
-
   if (e.target.dataset.changeType) {
     openEditModal("type", e.target.dataset.changeType);
   }
-
   if (e.target.dataset.addItem) {
     const listId = e.target.dataset.addItem;
     const list = lists.find((l) => l._id === listId);
     if (!list) return;
-
     const input = document.querySelector(`[data-list-input="${listId}"]`);
     const value = input.value.trim();
-
     if (!value) return;
-
     list.items.push({
       name: value,
       done: false
     });
-
     input.value = "";
     updateListInDB(list);
   }
-
   if (e.target.dataset.deleteItem) {
     const [listId, itemIndex] = e.target.dataset.deleteItem.split("|");
     const list = lists.find((l) => l._id === listId);
     if (!list) return;
-
     list.items.splice(itemIndex, 1);
     updateListInDB(list);
   }
-
   if (e.target.dataset.deleteList) {
     const listId = e.target.dataset.deleteList;
     const token = localStorage.getItem("token");
-
     await fetch(`/api/lists/${listId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
       }
     });
-
     fetchLists();
   }
-
   if (e.target.dataset.color) {
     const [listId, color] = e.target.dataset.color.split("|");
     const list = lists.find((l) => l._id === listId);
     if (!list) return;
-
     list.color = color;
     updateListInDB(list);
   }
 });
-
 document.addEventListener("change", (e) => {
   if (e.target.dataset.check) {
     const [listId, itemIndex] = e.target.dataset.check.split("|");
-
     const list = lists.find((l) => l._id === listId);
     if (!list) return;
-
     list.items[itemIndex].done = e.target.checked;
     updateListInDB(list);
   }
 });
-
 const editListModal = document.getElementById("editListModal");
 const editModalTitle = document.getElementById("editModalTitle");
 const editListInput = document.getElementById("editListInput");
 const cancelEditBtn = document.getElementById("cancelEditBtn");
 const saveEditBtn = document.getElementById("saveEditBtn");
-
 let editMode = null;
 let editingListIndex = null;
-
 function openEditModal(mode, listId) {
   editMode = mode;
   editingListIndex = listId;
-
   const list = lists.find((l) => l._id === listId);
   if (!list) return;
-
   if (mode === "rename") {
     editModalTitle.textContent = "Rename List";
     editListInput.value = list.name;
   }
-
   if (mode === "type") {
     editModalTitle.textContent = "Change List Type";
     editListInput.value = list.type || "General";
   }
-
   editListModal.classList.add("active");
   editListInput.focus();
 }
-
 function closeEditModal() {
   editListModal.classList.remove("active");
   editMode = null;
   editingListIndex = null;
 }
-
 fetchLists();
-
 if (saveEditBtn) {
   saveEditBtn.addEventListener("click", () => {
     const value = editListInput.value.trim();
-
     if (!value || editingListIndex === null) return;
-
     const list = lists.find((l) => l._id === editingListIndex);
     if (!list) return;
-
     if (editMode === "rename") {
       list.name = value;
     }
-
     if (editMode === "type") {
       list.type = value;
     }
-
     updateListInDB(list);
     closeEditModal();
   });
 }
-
 if (cancelEditBtn) {
   cancelEditBtn.addEventListener("click", closeEditModal);
 }
-
 if (editListModal) {
   editListModal.addEventListener("click", (e) => {
     if (e.target === editListModal) {
@@ -607,15 +477,11 @@ if (editListModal) {
     }
   });
 }
-
 document.getElementById("clearAllBtn")?.addEventListener("click", async () => {
   const token = localStorage.getItem("token");
-
   const savedItems = document.querySelectorAll(".delete-saved-btn");
-
   for (const btn of savedItems) {
     const id = btn.dataset.deleteSaved;
-
     await fetch(`/api/saved-titles/${id}`, {
       method: "DELETE",
       headers: {
@@ -623,58 +489,44 @@ document.getElementById("clearAllBtn")?.addEventListener("click", async () => {
       }
     });
   }
-
   fetchSavedTitles();
 });
-
 document.addEventListener("click", async (e) => {
   if (!e.target.dataset.deleteSaved) return;
-
   const id = e.target.dataset.deleteSaved;
   const token = localStorage.getItem("token");
-
   await fetch(`/api/saved-titles/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`
     }
   });
-
   fetchSavedTitles();
 });
-// page enters smoothly
 window.addEventListener("load", () => {
   document.body.classList.add("page-in");
-
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       document.body.classList.remove("page-in");
     });
   });
 });
-
-// page leaves smoothly
 document.querySelectorAll("a[href]").forEach((link) => {
   link.addEventListener("click", function (e) {
     const url = this.getAttribute("href");
-
     if (
       url.startsWith("http") ||
       url.startsWith("#")
     ) {
       return;
     }
-
     e.preventDefault();
-
     document.body.classList.add("page-out");
-
     setTimeout(() => {
       window.location.href = url;
     }, 350);
   });
 });
-
 async function loginUser(email, password) {
   const res = await fetch("/api/auth/login", {
     method: "POST",
@@ -683,9 +535,7 @@ async function loginUser(email, password) {
     },
     body: JSON.stringify({ email, password })
   });
-
   const data = await res.json();
-
   if (data.token) {
     localStorage.setItem("token", data.token);
     alert("Login successful");
@@ -694,9 +544,7 @@ async function loginUser(email, password) {
     alert(data.message);
   }
 }
-
 const signinBtn = document.querySelector(".signin-btn");
-
 if (signinBtn && localStorage.getItem("token")) {
   signinBtn.textContent = "Logout";
   signinBtn.addEventListener("click", () => {
@@ -704,17 +552,13 @@ if (signinBtn && localStorage.getItem("token")) {
     location.reload();
   });
 }
-
 const loginForm = document.getElementById("loginForm");
-
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const email = document.getElementById("loginEmail").value.trim();
     const password = document.getElementById("loginPassword").value.trim();
     const authMessage = document.getElementById("authMessage");
-
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
@@ -723,9 +567,7 @@ if (loginForm) {
         },
         body: JSON.stringify({ email, password })
       });
-
       const data = await res.json();
-
       if (data.token) {
         localStorage.setItem("token", data.token);
         window.location.href = "index.html";
@@ -737,18 +579,14 @@ if (loginForm) {
     }
   });
 }
-
 const registerForm = document.getElementById("registerForm");
-
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const username = document.getElementById("registerUsername").value.trim();
     const email = document.getElementById("registerEmail").value.trim();
     const password = document.getElementById("registerPassword").value.trim();
     const msg = document.getElementById("registerMessage");
-
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST",
@@ -757,9 +595,7 @@ if (registerForm) {
         },
         body: JSON.stringify({ username, email, password })
       });
-
       const data = await res.json();
-
       if (res.ok) {
         msg.textContent = "Account created! Redirecting...";
         setTimeout(() => {
@@ -773,18 +609,14 @@ if (registerForm) {
     }
   });
 }
-
 async function fetchSavedTitles() {
   const token = localStorage.getItem("token");
   if (!token || !savedTitleList) return;
-
   const res = await fetch("/api/saved-titles", {
     headers: {
       Authorization: `Bearer ${token}`
     }
   });
-
   const data = await res.json();
-
   renderSavedTitles(data);
 }

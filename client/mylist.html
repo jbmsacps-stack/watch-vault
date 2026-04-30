@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WatchVault</title>
+    <title>My Vault | WatchVault</title>
+    <meta name="description" content="Manage your WatchVault titles, create custom watchlists, organize movies, series, and anime, and keep your entertainment plans in one place.">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png">
 </head>
 
 <body>
@@ -14,7 +16,7 @@
 
             <a href="index.html" class="logo">
                 <img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png"
-                    alt="WatchVault logo" />
+                    alt="WatchVault logo" width="38" height="38" fetchpriority="high">
                 <span>WatchVault</span>
             </a>
 
@@ -35,39 +37,42 @@
 
         </nav>
     </header>
+
     <main class="mylist-page">
-        <section class="mylist-hero">
+        <section class="mylist-hero" aria-label="WatchVault list management">
             <p class="eyebrow">Your vault</p>
             <h1>Build custom watch lists.</h1>
             <p>Create lists for movies, series, anime, rewatch plans, weekend picks, or anything you want.</p>
         </section>
 
-        <section class="create-list-box">
-            <input type="text" id="customListInput" placeholder="Create a list: Weekend Watchlist..." />
+        <section class="create-list-box" aria-label="Create a custom watchlist">
+            <input type="text" id="customListInput" placeholder="Create a list: Weekend Watchlist...">
             <button id="createListBtn" type="button">Create List</button>
         </section>
 
-        
-        <section class="custom-lists" id="customLists"></section>
-        <div class="edit-list-modal" id="editListModal">
+        <section class="custom-lists" id="customLists" aria-label="Custom watchlists"></section>
+
+        <div class="edit-list-modal" id="editListModal" aria-label="Edit watchlist modal">
             <div class="edit-list-box">
                 <h2 id="editModalTitle">Edit List</h2>
-                
-                <input type="text" id="editListInput" placeholder="Enter value..." />
-                
+
+                <input type="text" id="editListInput" placeholder="Enter value...">
+
                 <div class="edit-actions">
                     <button id="cancelEditBtn" type="button">Cancel</button>
                     <button id="saveEditBtn" type="button">Save</button>
                 </div>
             </div>
         </div>
-        <section class="added-from-explore">
+
+        <section class="added-from-explore" aria-label="Titles added from Explore">
             <h2>Added From Explore</h2>
             <ul class="saved-title-list" id="savedTitleList"></ul>
-            <button id="clearAllBtn">Clear All</button>
+            <button id="clearAllBtn" type="button">Clear All</button>
         </section>
     </main>
-    <script src="script.js"></script>
+
+    <script src="script.js" defer></script>
 </body>
 
 </html>

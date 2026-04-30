@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WatchVault</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | WatchVault</title>
+    <meta name="description" content="Create a WatchVault account to save movies, build custom watchlists, organize series and anime, and manage your personal entertainment vault.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png">
 </head>
 
 <body class="auth-page">
-  <main class="auth-wrapper">
-    <section class="auth-card">
+    <main class="auth-wrapper">
+        <section class="auth-card" aria-label="WatchVault registration form">
+            <a href="index.html" class="auth-logo" aria-label="Go to WatchVault home">
+                <span>WatchVault</span>
+            </a>
 
+            <p class="eyebrow">Get started</p>
+            <h1>Create your account.</h1>
+            <p class="auth-subtitle">
+                Save movies, build lists, and manage your watch vault.
+            </p>
 
+            <form id="registerForm" class="auth-form">
+                <input type="text" id="registerUsername" name="username" placeholder="Username" autocomplete="username" required>
+                <input type="email" id="registerEmail" name="email" placeholder="Email address" autocomplete="email" required>
+                <input type="password" id="registerPassword" name="password" placeholder="Password" autocomplete="new-password" required>
+                <button type="submit">Create Account</button>
+            </form>
 
-      <a href="index.html" class="auth-logo">
-        <span>WatchVault</span>
-      </a>
+            <p class="auth-switch">
+                Already have an account?
+                <a href="login.html">Sign in</a>
+            </p>
 
-      <p class="eyebrow">Get started</p>
-      <h1>Create your account.</h1>
-      <p class="auth-subtitle">
-        Save movies, build lists, and manage your watch vault.
-      </p>
+            <p class="auth-message" id="registerMessage" aria-live="polite"></p>
+        </section>
+    </main>
 
-      <form id="registerForm" class="auth-form">
-        <input type="text" id="registerUsername" placeholder="Username" required />
-        <input type="email" id="registerEmail" placeholder="Email address" required />
-        <input type="password" id="registerPassword" placeholder="Password" required />
-
-        <button type="submit">Create Account</button>
-      </form>
-
-      <p class="auth-switch">
-        Already have an account?
-        <a href="login.html">Sign in</a>
-      </p>
-
-      <p class="auth-message" id="registerMessage"></p>
-
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
+
 </html>

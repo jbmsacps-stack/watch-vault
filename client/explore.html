@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WatchVault</title>
+    <title>Explore Movies, Series and Anime | WatchVault</title>
+    <meta name="description" content="Explore movies, series, and anime with WatchVault. Search titles, browse entertainment content, and save your favorites into a personal watch vault.">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png">
 </head>
 
 <body>
@@ -14,7 +16,7 @@
 
             <a href="index.html" class="logo">
                 <img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png"
-                    alt="WatchVault logo" />
+                    alt="WatchVault logo" fetchpriority="high">
                 <span>WatchVault</span>
             </a>
 
@@ -43,44 +45,33 @@
             <p>Search, browse, and save titles into your WatchVault lists.</p>
 
             <form class="search-panel" id="searchForm">
-                <input type="search" id="searchInput" placeholder="Search for Interstellar, Breaking Bad, Naruto..." />
+                <input type="search" id="searchInput" placeholder="Search for Interstellar, Breaking Bad, Naruto...">
                 <button type="submit">Search</button>
             </form>
-
         </section>
 
-        <section class="filter-section">
+        <section class="filter-section" aria-label="Title filters">
             <button class="filter-btn active">All</button>
             <button class="filter-btn">Movies</button>
             <button class="filter-btn">Series</button>
         </section>
+
         <section class="selected-display" id="selectedDisplay">
             <p class="eyebrow">Selected title</p>
             <h2 id="selectedTitle">Click a card to preview it here</h2>
             <p id="selectedMeta"></p>
             <p id="selectedPlot"></p>
         </section>
-        <section class="explore-grid" id="exploreGrid"></section>
+
+        <section class="explore-grid" id="exploreGrid" aria-label="Search results"></section>
     </main>
-    <div class="modal" id="movieModal">
-        <div class="modal-content">
-            <button class="close-btn" id="closeModal">✕</button>
 
-            <img id="modalPoster" src="" alt="poster">
-
-            <div class="modal-info">
-                <h2 id="modalTitle"></h2>
-                <p id="modalMeta"></p>
-                <p id="modalPlot"></p>
-            </div>
-        </div>
-    </div>
     <div class="movie-modal" id="movieModal">
         <div class="movie-modal-content">
             <button class="modal-close" id="modalClose" type="button">×</button>
 
             <div class="modal-poster-wrap">
-                <img id="modalPoster" src="" alt="Selected title poster">
+                <img id="modalPoster" src="" alt="Selected title poster" loading="lazy">
             </div>
 
             <div class="modal-info">
@@ -93,7 +84,8 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="script.js" defer></script>
 </body>
 
 </html>

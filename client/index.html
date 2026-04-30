@@ -4,11 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WatchVault</title>
+    <title>WatchVault | Personal Movie, Series and Anime Organizer</title>
+    <meta name="description" content="WatchVault is a personal entertainment manager for organizing movies, series, and anime. Create custom watchlists, explore titles, and manage your entertainment vault.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png">
+
     <link rel="stylesheet" href="style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
-    </style>
 </head>
 
 <body>
@@ -17,7 +21,7 @@
 
             <a href="index.html" class="logo">
                 <img src="https://i.postimg.cc/kGgDBffg/Chat-GPT-Image-Apr-28-2026-11-48-12-PM.png"
-                    alt="WatchVault logo" />
+                    alt="WatchVault logo" width="38" height="38" fetchpriority="high">
                 <span>WatchVault</span>
             </a>
 
@@ -41,7 +45,7 @@
 
     <main class="home-page">
 
-        <section class="hero-section">
+        <section class="hero-section" aria-label="WatchVault introduction">
             <div class="hero-content">
                 <p class="eyebrow">Build your personal watch vault</p>
 
@@ -61,7 +65,7 @@
                 </div>
             </div>
 
-            <aside class="hero-card">
+            <aside class="hero-card" aria-label="Sample watchlist">
                 <p class="card-label">Weekend List</p>
                 <h2>Popular Watchlist</h2>
 
@@ -73,7 +77,7 @@
             </aside>
         </section>
 
-        <section class="features-section">
+        <section class="features-section" aria-label="WatchVault features">
             <article class="feature-card">
                 <h3>Create Custom Lists</h3>
                 <p>Make lists like Weekend Watchlist, Anime Queue, Finished Movies, or Must Rewatch.</p>
@@ -90,7 +94,7 @@
             </article>
         </section>
 
-        <section class="showcase-section">
+        <section class="showcase-section" aria-label="Trending entertainment titles">
             <div class="section-heading">
                 <p class="eyebrow">Fresh picks for your vault</p>
                 <h2>Trending Right Now</h2>
@@ -98,36 +102,36 @@
             </div>
 
             <div class="showcase-grid">
-                <a href=explore.html class="poster-card">
+                <a href="explore.html" class="poster-card">
                     <img src="https://tse4.mm.bing.net/th/id/OIP.TJMd5L6Iex7q3VV8S5stpgHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3"
-                        alt="Dune Part Two poster">
+                        alt="Dune Part Two poster" loading="lazy" width="300" height="450">
                     <div>
                         <span>Movie</span>
                         <h3>Dune: Part Two</h3>
                     </div>
                 </a>
 
-                <a href=explore.html class="poster-card">
+                <a href="explore.html" class="poster-card">
                     <img src="https://th.bing.com/th/id/OIP.fNY93tXj0iWJlzap5ft-qgHaLH?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
-                        alt="Solo Leveling poster">
+                        alt="Solo Leveling poster" loading="lazy" width="300" height="450">
                     <div>
                         <span>Anime</span>
                         <h3>Solo Leveling</h3>
                     </div>
                 </a>
 
-                <a href=explore.html class="poster-card">
+                <a href="explore.html" class="poster-card">
                     <img src="https://tse1.mm.bing.net/th/id/OIP.7eUuuSDiB8fMlX6WKSKG_wHaJR?rs=1&pid=ImgDetMain&o=7&rm=3"
-                        alt="Shogun poster">
+                        alt="Shogun poster" loading="lazy" width="300" height="450">
                     <div>
                         <span>Series</span>
                         <h3>Shogun</h3>
                     </div>
                 </a>
 
-                <a href=explore.html class="poster-card">
+                <a href="explore.html" class="poster-card">
                     <img src="https://th.bing.com/th/id/R.6901d7dc0d703a4184fb8f8c58efad19?rik=jREAIpwf%2bC6ATA&riu=http%3a%2f%2fartofthemovies.co.uk%2fcdn%2fshop%2ffiles%2fIMG_7648.jpg%3fv%3d1720454458&ehk=wfvEoYkdVRLGbF0BJWUWf%2fDNuF1DKw6ZYLJhup5AqlU%3d&risl=&pid=ImgRaw&r=0"
-                        alt="Interstellar poster">
+                        alt="Interstellar poster" loading="lazy" width="300" height="450">
                     <div>
                         <span>Movie</span>
                         <h3>Interstellar</h3>
@@ -138,7 +142,7 @@
 
     </main>
 
-    <section class="contact-section" id="contact">
+    <section class="contact-section" id="contact" aria-label="Contact and legal information">
         <div class="contact-wrapper">
 
             <div class="contact-left">
@@ -174,7 +178,7 @@
                 <div class="contact-links">
                     <span class="contact-btn email-display">jbmsacps@gmail.com</span>
                     <a href="https://www.linkedin.com/in/joshua-baskar-2b4a88381/" target="_blank"
-                        class="contact-btn">LinkedIn</a>
+                        rel="noopener noreferrer" class="contact-btn">LinkedIn</a>
                 </div>
             </div>
 
@@ -208,7 +212,7 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
